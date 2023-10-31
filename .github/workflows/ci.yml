@@ -26,8 +26,10 @@ jobs:
           username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
       - name: Build ${{ matrix.image }} image
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v5
         with:
           file: ${{ matrix.image }}/Dockerfile
           push: true
-          tags: mautic/mautic:v4-${{ matrix.image }}
+          tags: |
+            ${{ vars.REGISTRY }}/mautic/mautic:v4-${{ matrix.image }}
+            ${{ vars.REGISTRY }}/mautic/mautic:v4-${{ matrix.image }}:latest
