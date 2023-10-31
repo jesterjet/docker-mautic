@@ -30,6 +30,4 @@ jobs:
         with:
           file: ${{ matrix.image }}/Dockerfile
           push: true
-          tags: |
-            ${{ vars.REGISTRY }}/mautic/mautic:v4-${{ matrix.image }}
-            ${{ vars.REGISTRY }}/mautic/mautic:v4-${{ matrix.image }}:latest
+          tags: ${{ vars.REGISTRY }}/mautic/mautic:v4-${{ matrix.image }}
